@@ -6,6 +6,8 @@ from config import token
 from config import place
 import asyncio
 import os
+import random
+
 
 client = commands.Bot(command_prefix = '&')
 print(os.getcwd())
@@ -294,11 +296,6 @@ async def liz(ctx):
                         await asyncio.sleep(0.1)
                 vc.stop()
                 await vc.disconnect()        
-@client.command()
-async def d10(ctx):
-        rand = random.randint(1,10)
-        await ctx.send('You rolled a ' + str(rand) + '.')
-
 #This tells the bot too fuck off from vc
 @client.command(pass_context=True)
 async def leave(ctx):
