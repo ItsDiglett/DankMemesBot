@@ -4,10 +4,9 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from config import token
 from config import place
-import random
-import ffmpeg
 import asyncio
 import os
+import random
 
 class Example(commands.Cog):
     def __iniit__(self,client):

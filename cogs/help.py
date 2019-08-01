@@ -4,10 +4,9 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from config import token
 from config import place
-import random
-import ffmpeg
 import asyncio
 import os
+import random
 
 class Example(commands.Cog):
         def __iniit__(self,client):
@@ -18,7 +17,7 @@ class Example(commands.Cog):
                 await ctx.send('Check out the github here: https://github.com/ItsDiglett/DankMemesBot ')
 
         @commands.command(pass_context=True)
-        async def help1(self, ctx):
+        async def help(self, ctx):
                 author = ctx.message.author
                 channel = ctx.message.channel
             
