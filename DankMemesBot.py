@@ -26,21 +26,7 @@ async def amazin(ctx):
                 await asyncio.sleep(0.1)
         vc.stop()
         await vc.disconnect()
-@client.command(pass_context=True)
-async def methode3(ctx):
-        if ctx.guild.id == (413059339138629632):
-                channel = ctx.message.author.voice.channel
-                server = ctx.message.guild.voice_client
-                vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'methode3.wav'), after=lambda e: print('done', e))
-                await asyncio.sleep(0.1)
-                while vc.is_playing():
-                        await asyncio.sleep(0.1)
-                vc.stop()
-                await vc.disconnect()
 
-        else:
-                await ctx.send("You can't use that.")
 @client.command(pass_context=True, name="okso", help="ok so")
 async def okso(ctx):
         channel = ctx.message.author.voice.channel
@@ -85,17 +71,7 @@ async def bloodycomplex(ctx):
                 await asyncio.sleep(0.1)
         vc.stop()
         await vc.disconnect()
-@client.command()
-async def methode2(ctx):
-        channel = ctx.message.author.voice.channel
-        server = ctx.message.guild.voice_client
-        vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'methode.wav'))
-        await asyncio.sleep(0.1)
-        while vc.is_playing():
-                await asyncio.sleep(0.1)
-        vc.stop()
-        await vc.disconnect()
+
 @client.command(pass_context=True)
 async def thicc(ctx):
         await ctx.send('乇乂ㄒ尺卂   ㄒ卄丨匚匚')
@@ -281,18 +257,7 @@ async def goodthing(ctx):
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
                 vc.stop()
-                await vc.disconnect()
-@client.command()
-async def methode(ctx):                
-                channel = ctx.message.author.voice.channel
-                server = ctx.message.guild.voice_client
-                vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'methode.mp3'), after=lambda e: print('done', e))
-                await asyncio.sleep(0.1)
-                while vc.is_playing():
-                        await asyncio.sleep(0.1)
-                vc.stop()
-                await vc.disconnect()              
+                await vc.disconnect()            
 @client.command()
 async def coochie(ctx):
                 print(rand)
