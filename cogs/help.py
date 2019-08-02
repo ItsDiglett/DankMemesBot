@@ -7,6 +7,7 @@ from config import place
 import asyncio
 import os
 import random
+import youtube_dl
 
 class Example(commands.Cog):
         def __iniit__(self,client):
@@ -69,6 +70,14 @@ class Example(commands.Cog):
                 embed.add_field(name='liz', value='says "read theory"', inline=False)
 
                 await ctx.channel.send(embed=embed)
+
+
+
+        #This tells the bot too fuck off from vc
+        @commands.command(pass_context=True)
+        async def leave(self, ctx):
+                server = ctx.message.guild.voice_client
+                await server.disconnect() 
 
 def setup(client):
         client.add_cog(Example(client))
