@@ -8,55 +8,35 @@ import asyncio
 import os
 import random
 
-
 client = commands.Bot(command_prefix = '&')
-print(os.getcwd())
 client.remove_command('help')
-
+print(os.getcwd())
+print(os.listdir('soundclips'))
 for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
                 client.load_extension(f'cogs.{filename[:-3]}')
-
-@client.command(pass_context=True)
-async def amazin(ctx):
-        channel = ctx.message.author.voice.channel
-        server = ctx.message.guild.voice_client
-        vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'amazin'+ str(random.randint(1, 4)) + ".mp3")) 
-        await asyncio.sleep(0.1)
-        while vc.is_playing():
-                await asyncio.sleep(0.1)
-        vc.stop()
-        await vc.disconnect()
+@client.event
+async def on_ready():
+        print('It\'s alive!')
 
 @client.command(pass_context=True, name="okso", help="ok so")
 async def okso(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'ok_so.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('ok_so.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
         vc.stop()
         await vc.disconnect()
-@client.command(pass_context=True, name="beta", help="beta")
-async def beta(ctx):
-        channel = ctx.message.author.voice.channel
-        server = ctx.message.guild.voice_client
-        vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'beta'+ str(random.randint(1, 4)) + ".mp3"))
-        await asyncio.sleep(0.1)
-        while vc.is_playing():
-                await asyncio.sleep(0.1)
-        vc.stop()
-        await vc.disconnect()
+
 @client.command(pass_context=True)
 async def bloodycomplex(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'bloody_complex.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio(('bloody_complex.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -69,7 +49,7 @@ async def thicc(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'thicc.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('thicc.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -80,7 +60,7 @@ async def graph(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'graph.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('graph.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -91,7 +71,7 @@ async def tdong(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'tdong.wav'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('tdong.wav'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -102,7 +82,7 @@ async def president(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'president'+ str(random.randint(1, 4)) + ".wav"))
+        vc.play(discord.FFmpegPCMAudio('president'+ str(random.randint(1, 4)) + ".wav"))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -113,7 +93,7 @@ async def brainblast(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'brainblast.wav'))
+        vc.play(discord.FFmpegPCMAudio('brainblast.wav'))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -124,7 +104,7 @@ async def racist(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'racist.wav'))
+        vc.play(discord.FFmpegPCMAudio('racist.wav'))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -135,7 +115,7 @@ async def anarchy(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'anarchy.wav'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('anarchy.wav'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -146,7 +126,7 @@ async def possible(ctx):
                 channel = ctx.message.author.voice.channel
                 server = ctx.message.guild.voice_client
                 vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'possible.mp3'), after=lambda e: print('done', e))
+                vc.play(discord.FFmpegPCMAudio('possible.mp3'), after=lambda e: print('done', e))
                 await asyncio.sleep(0.1)
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
@@ -159,7 +139,7 @@ async def uwu(ctx):
                 channel = ctx.message.author.voice.channel
                 server = ctx.message.guild.voice_client
                 vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'uwu.mp3'), after=lambda e: print('done', e))
+                vc.play(discord.FFmpegPCMAudio('uwu.mp3'), after=lambda e: print('done', e))
                 await asyncio.sleep(0.1)
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
@@ -167,13 +147,12 @@ async def uwu(ctx):
                 await vc.disconnect()
         else:
                 await ctx.send("You can't use that command.")
-
 @client.command(pass_context=True)
 async def blunder(ctx):
                 channel = ctx.message.author.voice.channel
                 server = ctx.message.guild.voice_client
                 vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'blunder.wav'), after=lambda e: print('done', e))
+                vc.play(discord.FFmpegPCMAudio('blunder.wav'), after=lambda e: print('done', e))
                 await asyncio.sleep(0.1)
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
@@ -192,7 +171,7 @@ Open up your gifts while we all cheer.```""")
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'rats_birthday_mixtape.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('rats_birthday_mixtape.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -203,7 +182,7 @@ async def believe(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'cantbelieve.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('cantbelieve.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -214,18 +193,19 @@ async def cringe(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'Cringe.wav'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('Cringe.wav'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
         vc.stop()
         await vc.disconnect()
+
 @client.command()
 async def hoesmad(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
         vc = await channel.connect()
-        vc.play(discord.FFmpegPCMAudio((place) + '/' + 'hoes mad.mp3'), after=lambda e: print('done', e))
+        vc.play(discord.FFmpegPCMAudio('hoes mad.mp3'), after=lambda e: print('done', e))
         await asyncio.sleep(0.1)
         while vc.is_playing():
                 await asyncio.sleep(0.1)
@@ -237,7 +217,7 @@ async def attention(ctx):
                 channel = ctx.message.author.voice.channel
                 server = ctx.message.guild.voice_client
                 vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'attention.mp3'), after=lambda e: print('done', e))
+                vc.play(discord.FFmpegPCMAudio('attention.mp3'), after=lambda e: print('done', e))
                 await asyncio.sleep(0.1)
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
@@ -249,7 +229,7 @@ async def liz(ctx):
                 channel = ctx.message.author.voice.channel
                 server = ctx.message.guild.voice_client
                 vc = await channel.connect()
-                vc.play(discord.FFmpegPCMAudio((place) + '/' + 'liz.wav'), after=lambda e: print('done', e))
+                vc.play(discord.FFmpegPCMAudio('liz.wav'), after=lambda e: print('done', e))
                 await asyncio.sleep(0.1)
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
