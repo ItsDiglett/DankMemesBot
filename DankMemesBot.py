@@ -32,6 +32,19 @@ async def okso(ctx):
         await vc.disconnect()
 
 @client.command(pass_context=True)
+async def harrass(ctx):
+        channel = ctx.message.author.voice.channel
+        server = ctx.message.guild.voice_client
+        vc = await channel.connect()
+        vc.play(discord.FFmpegPCMAudio('soundclips/Sexual_Harrasment.mp3'), after=lambda e: print('done', e))
+        await asyncio.sleep(0.1)
+        while vc.is_playing():
+                await asyncio.sleep(0.1)
+        vc.stop()
+        await vc.disconnect()
+
+
+@client.command(pass_context=True)
 async def bloodycomplex(ctx):
         channel = ctx.message.author.voice.channel
         server = ctx.message.guild.voice_client
@@ -246,6 +259,6 @@ async def liz(ctx):
                 while vc.is_playing():
                         await asyncio.sleep(0.1)
                 vc.stop()
-                await vc.disconnect()        
+                await vc.disconnect() 
 
 client.run(token)
