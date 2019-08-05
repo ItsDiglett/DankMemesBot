@@ -8,36 +8,35 @@ from config import flusers
 import asyncio
 import os
 import random
-import youtube_dl
 
 
 class Example(commands.Cog):
         def __iniit__(self,client):
                 self.client=client
 
-        @commands.command()
-        async def goodthing(self, ctx): 
+        @commands.command(pass_context=True)
+        async def amazin(self, ctx):
             channel = ctx.message.author.voice.channel
             server = ctx.message.guild.voice_client
             vc = await channel.connect()
-            vc.play(discord.FFmpegPCMAudio((place) + '/' +'goodthing.wav'), after=lambda e: print('done', e))
+            vc.play(discord.FFmpegPCMAudio((place) + '/' + 'amazin'+ str(random.randint(1, 4)) + ".mp3")) 
             await asyncio.sleep(0.1)
             while vc.is_playing():
-                await asyncio.sleep(0.1)
+                    await asyncio.sleep(0.1)
             vc.stop()
-            await vc.disconnect()  
+            await vc.disconnect()
 
-        @commands.command()
-        async def yourwrong(self, ctx): 
+        @commands.command(pass_context=True, name="beta", help="beta")
+        async def beta(self, ctx):
             channel = ctx.message.author.voice.channel
             server = ctx.message.guild.voice_client
             vc = await channel.connect()
-            vc.play(discord.FFmpegPCMAudio((place) + '/' +'wrong.wav'), after=lambda e: print('done', e))
+            vc.play(discord.FFmpegPCMAudio((place) + '/' + 'beta'+ str(random.randint(1, 4)) + ".mp3"))
             await asyncio.sleep(0.1)
             while vc.is_playing():
-                await asyncio.sleep(0.1)
+                    await asyncio.sleep(0.1)
             vc.stop()
-            await vc.disconnect()  
+            await vc.disconnect()
 
 def setup(client):
-        client.add_cog(Example(client))
+        client.add_cog(Example(client))               

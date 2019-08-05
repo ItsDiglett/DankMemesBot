@@ -4,7 +4,7 @@ from discord.utils import get
 from discord import FFmpegPCMAudio
 from config import token
 from config import place
-from config import admin
+from config import flusers
 import asyncio
 import os
 import random
