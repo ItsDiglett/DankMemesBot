@@ -3,8 +3,6 @@ from discord.ext import commands
 from discord.utils import get
 from discord import FFmpegPCMAudio
 from config import token
-from config import place
-from config import flusers
 import asyncio
 import os
 import random
@@ -37,6 +35,7 @@ class Example(commands.Cog):
         if yikes in ctx.author.roles:
             role = discord.utils.get(ctx.guild.roles, name='Gulag\'d')
             await member.add_roles(role)
+            await ctx.send(f'{member.mention} has been gulaged.')
         else: 
             await ctx.send('You don\'t have the permissions to use that command')
 
@@ -46,8 +45,10 @@ class Example(commands.Cog):
         if yikes in ctx.author.roles:
             role = discord.utils.get(ctx.guild.roles, name='Gulag\'d')
             await member.remove_roles(role)
+            await ctx.send(f'{member.mention} has been ungulaged.')
         else:
             await ctx.send('You don\'t have the permissions to use that command')
+
 
 def setup(client):
         client.add_cog(Example(client))
