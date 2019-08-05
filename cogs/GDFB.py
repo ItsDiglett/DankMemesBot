@@ -49,6 +49,13 @@ class Example(commands.Cog):
         else:
             await ctx.send('You don\'t have the permissions to use that command')
 
+    @commands.command()
+    async def k(self, ctx):
+        message = await ctx.send('@everyone') 
+        await ctx.message.delete()
+        if ctx.message.content.startsWith('@everyone'):
+            await ctx.message.delete
+        
 
 def setup(client):
         client.add_cog(Example(client))
