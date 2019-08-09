@@ -12,12 +12,23 @@ client.remove_command('help')
 print(os.getcwd())
 print(os.listdir('soundclips'))
 
+
 for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
-                client.load_extension(f'cogs.{filename[:-3]}')
+                client.load_extension(f"cogs.{filename[:-3]}")
+
 @client.event
 async def on_ready():
         print('It\'s alive!')
+
+
+@client.event
+async def on_message(message):
+        if message.content.startswith('@everyone'):
+                await message.delete()
+
+        await client.process_commands(message)
+
 
 #Directory
         #Memes1: okso, believe, rats
